@@ -111,6 +111,36 @@ else{
 
 
 })
+app.post("/getTotalBought", async (req, res) => {
+  try {
+    const { address } = req.body;
+
+    if (!address) {
+      return res.status(400).json({ status: false, message: "Address is required" });
+    }
+
+    const record = await TokenBoughtRecord.findOne({ address });
+
+    if (!record) {
+      return res.status(200).json({ 
+        status: true, 
+        message: "No purchase record found for this address", 
+        tokenBought: 0 
+      });
+    }
+
+    res.status(200).json({ 
+      status: true, 
+      message: "Fetched total tokens bought successfully", 
+      tokenBought: record.tokenBought 
+    });
+
+  } catch (error) {
+    console.error("Error in /getTotalBought:", error);
+    res.status(500).json({ status: false, message: "Server error" });
+  }
+});
+
 
 app.get("/getSoldTokens", async (req, res) => {
   try {

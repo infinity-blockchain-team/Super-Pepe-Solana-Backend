@@ -7,8 +7,8 @@ app.use(cors())
 const {RecordSold,TokenBoughtRecord,TransactionRecord}=require("./model/model")
 const { Connection, PublicKey } = require('@solana/web3.js');
 
-// const connection = new Connection("https://api.mainnet-beta.solana.com", "confirmed");
-const connection = new Connection("https://api.devnet.solana.com", "confirmed");
+const connection = new Connection("https://api.mainnet-beta.solana.com", "confirmed");
+// const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 const TREASURY_WALLET = 'FsdAQMmLn2Lmh4F37RUgQhrKU3WWRGvhafkBGRiGiSDo';
 // const TREASURY_WALLET = 'GdJ3xQmw68L8r4crfLu7eigoCFvfL6pAvNL9ETn5JBy8';
 
